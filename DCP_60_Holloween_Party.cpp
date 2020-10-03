@@ -1,10 +1,6 @@
-/*input
-
-*/
 
 #include <bits/stdc++.h>
-#define getcx getchar_unlocked
-#define putcx putchar_unlocked
+// DEFINES below
 #define pb(x) push_back(x);
 #define in(y) insert(y);
 #define tt(t) while(t--)
@@ -21,10 +17,11 @@
 #define fors(i,a,b) for(int i=a;i<b;i++)
 #define all(v) v.begin(),v.end()
 #define mp make_pair
+//DEFINES end
 using namespace std;
-const int MOD = 1e9+7;
+
 char mat[1001][1001];
-int n,m;
+int n,m,t,cnt=1;
 int dist[1001][1001];
 int xxx[]={0,0,-1,1};
 int yyy[]={-1,1,0,0};
@@ -32,7 +29,7 @@ bool vis[1001][1001];
 bool valid(int x,int y){
     return (x<=(n-1) and x>=0 and y>=0 and y<=m-1);
 }
-int cnt=1;
+
 void dijk(){
     dist[0][0]=0;
     deque<ii> pq;
@@ -67,19 +64,18 @@ void dijk(){
         }
     }
     cout<<"Case "<<cnt++<<": "<<dist[n-1][m-1]<<"\n";
-    //cout<<n<<" "<<m;
+   
 
 }
 signed main(){
     ios_base::sync_with_stdio(0); cin.tie(0);
-    int t;
     cin>>t;
     while(t--){
      cin>>n>>m;
     fors(i,0,n){
         fors(j,0,m){
              cin>>mat[i][j];
-            //mat[i][j]=(c-'0');
+            
             dist[i][j]=987654321;
             vis[i][j]=0;
         }
